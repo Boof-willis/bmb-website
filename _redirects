@@ -1,0 +1,19 @@
+# Cloudflare Pages redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Pretty URLs (no .html extension)
+/about              /about.html              200
+/contact            /contact-us.html         200
+/contact-us         /contact-us.html         200
+/free-quote         /contact-us.html         301
+/free-quote.html    /contact-us.html         301
+/privacy            /privacy-policy.html     200
+/privacy-policy     /privacy-policy.html     200
+/terms              /terms-of-service.html   200
+/terms-of-service   /terms-of-service.html   200
+/residential        /residential-construction-utah.html  200
+/commercial         /commercial-construction-utah.html   200
+
+# Common typos / legacy
+/index              /index.html              301
+/home               /index.html              301
