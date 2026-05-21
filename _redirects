@@ -1,19 +1,22 @@
 # Cloudflare Pages redirects
 # https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Cloudflare Pages automatically:
+#   - serves `foo.html` at the clean URL `/foo`
+#   - 301-redirects `/foo.html` -> `/foo`
+# So we only need rules for renamed/legacy paths and short aliases.
+# Always redirect to the clean URL (no `.html`), never the file path.
 
-# Pretty URLs (no .html extension)
-/about              /about.html              200
-/contact            /contact-us.html         200
-/contact-us         /contact-us.html         200
-/free-quote         /contact-us.html         301
-/free-quote.html    /contact-us.html         301
-/privacy            /privacy-policy.html     200
-/privacy-policy     /privacy-policy.html     200
-/terms              /terms-of-service.html   200
-/terms-of-service   /terms-of-service.html   200
-/residential        /residential-construction-utah.html  200
-/commercial         /commercial-construction-utah.html   200
+# Aliases (short -> canonical clean URL)
+# Note: `/about` needs no rule -- Pages auto-serves about.html there.
+/contact          /contact-us                       301
+/privacy          /privacy-policy                   301
+/terms            /terms-of-service                 301
+/residential      /residential-construction-utah    301
+/commercial       /commercial-construction-utah     301
 
-# Common typos / legacy
-/index              /index.html              301
-/home               /index.html              301
+# Legacy / typos
+/free-quote       /contact-us                       301
+/free-quote.html  /contact-us                       301
+/home             /                                 301
+/index            /                                 301
