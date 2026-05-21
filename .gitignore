@@ -9,3 +9,6 @@
 
 # Logs
 *.log
+
+# Oversized master video (>25 MiB Cloudflare Pages limit) — use transcoded versions instead
+videos/DJI_0121_1.mp4
